@@ -14,7 +14,7 @@ end
 
 #Should validate checksum
 remote_file "#{Chef::Config[:file_cache_path]}/solr5.tar.gz" do
-  source "ftp://10.10.10.10/mirror/solr5/solr5-#{node['solr5']['version']}.tar.gz"
+  source "ftp://10.10.10.10/mirror/solr5/solr-#{node['solr5']['version']}.tgz"
   ftp_active_mode node['ftp_active_mode']
   not_if { 	File.exists?('/srv/solr5') && Dir.entries('/srv/solr5').select {|f| !File.directory? f}.length > 0}
 end
@@ -39,6 +39,11 @@ end
 
 unit = template '/etc/systemd/system/solr5.service' do
   source 'solr5.service.erb'
+  variables({
+    install_path: node['solr5']['install_path'],
+    port: node['solr5']['port'],
+    solr_home: node['solr']['install_path'] + '/solr_home'
+    })
 end
 
 execute 'systemd-reload' do

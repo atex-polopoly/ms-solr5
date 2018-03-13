@@ -13,8 +13,7 @@ verifier:
   name: inspec
 
 platforms:
-  - name: ubuntu-16.04
-  - name: centos-7
+  - name: centos-7.2
 
 suites:
   - name: default
@@ -24,3 +23,7 @@ suites:
       inspec_tests:
         - test/smoke/default
     attributes:
+      solr5:
+        version: '5.3.0'
+      ftp_active_mode: false
+      customer: atx

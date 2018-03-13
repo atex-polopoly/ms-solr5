@@ -1,0 +1,15 @@
+[Unit]
+Description=Apache solr5
+Documentation=https://lucene.apache.org/solr
+Requires=network.target local-fs.target
+After=network.target local-fs.target
+
+[Service]
+Type=forking
+User=zookeeper
+Group=zookeeper
+ExecStart=<%=@install_path%>/bin/solr start -p <%=@port%> -s <%=@solr_home%>
+ExecStop=<%=@install_path%>/bin/solr stop -p <%=@port%> -s <%=@solr_home%>
+
+[Install]
+WantedBy=multi-user.target

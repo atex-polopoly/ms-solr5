@@ -4,7 +4,7 @@
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
 
-directory '/mnt/data/solr5/data' do
+directory '/mnt/data/solr5/solr_home' do
   owner 'solr5'
   group 'solr5'
   mode '0755'
@@ -12,8 +12,8 @@ directory '/mnt/data/solr5/data' do
   action :create
 end
 
-link '/srv/solr5/data' do
-  to '/mnt/data/solr5/data'
+link '/srv/solr5/solr_home' do
+  to '/mnt/data/solr5/solr_home'
   owner 'solr5'
   group 'solr5'
 end
