@@ -23,6 +23,12 @@ end
 
 describe service('solr5') do
   it { should be_installed }
-  it { should be_running }
   it { should be_enabled }
+end
+
+describe file('/etc/systemd/system/solr5.service') do
+  it { should exist }
+  it { should be_owned_by 'root' }
+  it { should be_grouped_into 'root' }
+  its('content') { should include('/srv/solr5/bin/solr start -p 8983 -s /srv/solr5/solr_home')}
 end

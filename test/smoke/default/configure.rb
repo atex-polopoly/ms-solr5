@@ -11,5 +11,5 @@ describe file('/srv/solr5/solr_home') do
   it { should be_grouped_into 'solr5' }
   its('link_path') { should eq '/mnt/data/solr5/solr_home' }
   its('mode') { should cmp '00755' }
-  its('type') { should cmp 'link' }
+  its('type') { should cmp 'directory' }
 end

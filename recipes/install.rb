@@ -42,7 +42,7 @@ unit = template '/etc/systemd/system/solr5.service' do
   variables({
     install_path: node['solr5']['install_path'],
     port: node['solr5']['port'],
-    solr_home: node['solr5']['install_path'] + '/solr_home',
+    solr_home: node['solr5']['home'],
     params: generate_parameters
     })
 end
