@@ -6,9 +6,9 @@ After=network.target local-fs.target
 
 [Service]
 Type=forking
-User=zookeeper
-Group=zookeeper
-ExecStart=<%=@install_path%>/bin/solr start -p <%=@port%> -s <%=@solr_home%>
+User=solr5
+Group=solr5
+ExecStart=<%=@install_path%>/bin/solr start -p <%=@port%> -s <%=@solr_home%><%=@params%>
 ExecStop=<%=@install_path%>/bin/solr stop -p <%=@port%> -s <%=@solr_home%>
 
 [Install]
