@@ -18,10 +18,3 @@ link 'symlink solr_home' do
   owner 'solr5'
   group 'solr5'
 end
-
-cookbook_file "#{node['solr5']['home']}/solr.xml" do
-  source 'solr.xml'
-  owner 'solr5'
-  group 'solr5'
-  mode '0644'
-end
