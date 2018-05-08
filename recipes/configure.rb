@@ -4,17 +4,10 @@
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
 
-directory '/mnt/data/solr5/solr_home' do
+directory node['solr5']['home'] do
   owner 'solr5'
   group 'solr5'
   mode '0755'
   recursive true
   action :create
-end
-
-link 'symlink solr_home' do
-  target_file node['solr5']['home']
-  to '/mnt/data/solr5/solr_home'
-  owner 'solr5'
-  group 'solr5'
 end
