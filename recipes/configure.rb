@@ -7,7 +7,7 @@
 directory node['solr5']['home'] do
   owner 'solr5'
   group 'solr5'
-  mode '0755'
+  mode '0775'
   recursive true
   action :create
 end
